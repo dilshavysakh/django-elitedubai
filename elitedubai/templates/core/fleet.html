@@ -1,0 +1,36 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="fleet-page mt-5">
+    <div class="container">
+        <div class="section-title ">
+            <h2>Our Car Fleet</h2>
+        </div>
+            <div class="container">
+                {% for fleet in fleet %}
+                <div class="row">
+                    <div class="col-md-6">
+                    <img src="{{ fleet.img.url }} ">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="my-3">{{fleet.name}}</h3>
+                        <p>{{fleet.desc}}</p>
+                        <div class="card" style="width: 100%;">
+                            <ul class="list-group list-group-flush my-2 ">
+                            <li class="list-group-item text-muted">Passengers Capacity : {{fleet.passengers}}</li>
+                            <li class="list-group-item text-muted">Luggage Capacity: {{fleet.luggage}} L</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

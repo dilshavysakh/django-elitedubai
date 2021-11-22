@@ -1,0 +1,84 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section id="contact" class="contact">
+    <div class="container mt-5">
+
+      <div class="section-title mb-5">
+        <h2>Contact Us</h2>
+      </div>
+
+      <div class="row contact-info">
+
+        <div class="col-md-4">
+          <div class="contact-address">
+            <i class="bi bi-geo-alt"></i>
+            <h3>Address</h3>
+            <address>Elite Limousine Service LLC <br>
+            P.O Box: 125102, Dubai </address>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-phone">
+            <i class="bi bi-phone"></i>
+            <h3>Phone Number</h3>
+            <p><a href="tel:+971505828511">+971 50 582 8511</a></p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-email">
+            <i class="bi bi-envelope"></i>
+            <h3>Email</h3>
+            <p><a href="mailto:bookingelitelimodubai@gmail.com">bookingelitelimodubai@gmail.com</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form">
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+          <div class="container">
+            <div class="row">
+              <div class="form-group">
+                <label for=""></label>
+                <input type="text" class="form-control" id="" aria-describedby="" name="name" placeholder="Full Name">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for=""></label>
+                <input type="email" class="form-control" name="email" id=""placeholder="Email">
+              </div>
+              <div class="col form-group">
+                <label for=""></label>
+                <input type="number" class="form-control" name="phone" id=""placeholder="Phone Number">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label for=""></label>
+                <textarea class="form-control" name="message" name="message" rows="4" placeholder="Message" required></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn my-4">Book Now</button>
+          </div>
+              {% if messages %}
+                {% for msg in messages %}
+                  <script>
+                    alert('{{ msg }}');
+                  </script>
+                {% endfor %}
+              {% endif %} 
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}
